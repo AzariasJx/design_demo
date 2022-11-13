@@ -1,5 +1,6 @@
 package com.study.design.service;
 
+import com.study.design.auditlog.impl.OrderLogProcessor;
 import com.study.design.order.pojo.Order;
 import com.study.design.order.pojo.OrderState;
 import com.study.design.order.pojo.OrderStateChangeAction;
@@ -30,6 +31,9 @@ public class OrderService {
     @Resource
     private StateMachinePersister<OrderState,OrderStateChangeAction,Order> stateMachinePersister;
 
+    @Autowired
+    private OrderLogProcessor orderLogProcessor;
+
     //模拟数据持久化
     private static List<Order> orders = new ArrayList<>();
 
@@ -39,6 +43,7 @@ public class OrderService {
         order.setOrderId(orderId);
 
         orders.add(order);
+        orderLogProcessor.processAuditLog("用户名称","创建订单",orderId.toString());
         return order;
     }
 

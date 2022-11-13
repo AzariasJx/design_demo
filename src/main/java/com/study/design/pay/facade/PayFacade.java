@@ -3,7 +3,8 @@ package com.study.design.pay.facade;
 import com.study.design.pay.PayContext;
 import com.study.design.pay.PayStrategy;
 import com.study.design.pay.PayStrategyEnum;
-import com.study.design.pay.PayStrategyFactory;
+import com.study.design.pay.factory.PayDecoratorFactory;
+import com.study.design.pay.factory.PayStrategyFactory;
 import com.study.design.pay.decorator.PayDecorator;
 import com.study.design.pay.pojo.PayBody;
 
@@ -17,7 +18,9 @@ public class PayFacade {
     public Boolean pay(PayBody payBody){
 
         PayStrategy payStrategy = PayStrategyFactory.getPayStrategy(PayStrategyEnum.getByType(payBody.getType()));
-        PayDecorator payDecorator = new PayDecorator(new PayContext(payStrategy));
+
+        PayDecorator payDecorator = PayDecoratorFactory.getPayDecorator(payStrategy);
+
         return payDecorator.addUserResource(payBody);
     }
 }
