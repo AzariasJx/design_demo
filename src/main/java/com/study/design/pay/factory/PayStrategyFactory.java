@@ -1,6 +1,7 @@
-package com.study.design.pay;
+package com.study.design.pay.factory;
 
 import com.study.design.pay.PayStrategy;
+import com.study.design.pay.PayStrategyEnum;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

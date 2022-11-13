@@ -30,6 +30,7 @@ public class UserService {
         processer.process(userInfo,result);
         return result;
 
+
     }
 
     private UserInfo getUserInfo(String username) {
