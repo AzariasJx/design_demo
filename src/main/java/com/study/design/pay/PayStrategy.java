@@ -3,7 +3,7 @@ package com.study.design.pay;
 import com.study.design.pay.pojo.PayBody;
 
 /**
- * @description:
+ * @description: 支付策略
  * @author： 灰原二
  * @date: 2022/11/12 10:14
  */
