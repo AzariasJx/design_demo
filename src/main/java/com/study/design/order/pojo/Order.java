@@ -6,14 +6,14 @@ package com.study.design.order.pojo;
  * @date: 2022/11/13 10:04
  */
 public class Order {
-    private int orderId;
+    private Integer orderId;
     private OrderState orderState;
 
-    public int getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 

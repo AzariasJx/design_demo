@@ -4,6 +4,7 @@ import com.study.design.order.pojo.Order;
 import com.study.design.order.pojo.OrderState;
 import com.study.design.order.pojo.OrderStateChangeAction;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.statemachine.StateMachineContext;
 import org.springframework.statemachine.StateMachinePersist;
 import org.springframework.statemachine.config.EnableStateMachine;
@@ -12,6 +13,7 @@ import org.springframework.statemachine.config.builders.StateMachineStateConfigu
 import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;
 import org.springframework.statemachine.persist.DefaultStateMachinePersister;
 import org.springframework.statemachine.support.DefaultStateMachineContext;
+import org.springframework.stereotype.Component;
 
 import java.util.EnumSet;
 
@@ -20,6 +22,7 @@ import java.util.EnumSet;
  * @author： 灰原二
  * @date: 2022/11/13 10:20
  */
+@Configuration
 @EnableStateMachine(name = "orderStateMachine")
 public class OrderStateMachineConfig extends StateMachineConfigurerAdapter<OrderState, OrderStateChangeAction> {
 
